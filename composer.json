@@ -9,8 +9,11 @@
         "ext-curl": "*",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "jacobcyl/ali-oss-storage": "2.1",
+        "johnlui/aliyun-oss": "^2.2",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
+        "laravel/tinker": "^2.5"
         "laravel/tinker": "^2.5",
         "tymon/jwt-auth": "^1.0@dev"
     },
@@ -65,5 +68,11 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    }
 }
