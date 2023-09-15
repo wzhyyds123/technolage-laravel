@@ -1,6 +1,14 @@
 <?php
 
+
+use App\Http\Controllers\ResouceController;
+
+use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\ResouceController;
+use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\testcontroller;
+use App\Http\Controllers\UsersController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +26,28 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::post('11', [testcontroller::class, 'text']);
 Route::middleware('jwt.role:admins')->prefix('admin')->group(function () {
     Route::post('Find_Resouce', [\App\Http\Controllers\ResouceController::class, 'Find_Resouce']);//查看
     Route::post('Delete_Rsouce', [\App\Http\Controllers\ResouceController::class, 'Delete_Rsouce']);//修改
     Route::post('revise_Rsouce', [\App\Http\Controllers\ResouceController::class, 'revise_Rsouce']);
 });
+
+
+Route::post('FindResouce',[ResouceController::class,'FindResouce']);
+Route::post('tzlapdate',[ResouceController::class, 'tzlapdate']);
+Route::post('tzldelete',[ResouceController::class,'tzldelete']);
+
+
+
+Route::post('FindResouce',[ResouceController::class,'FindResouce']);
+Route::post('FindNotice',[NoticeController::class,'FindNotice']);
+Route::post('SearchResouce',[ResouceController::class,'SearchResouce']);
+
+Route::post('register',[UsersController::class,'register']);
+Route::post('login',[UsersController::class,'login']);
+Route::post('adminRegister',[AdminsController::class,'adminRegister']);
+Route::post('adminLogin',[AdminsController::class,'adminLogin']);
+
+
