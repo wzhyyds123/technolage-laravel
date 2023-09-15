@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
+
+
+class UsersController extends Controller
+{
+
 use App\Models\Users;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -80,4 +86,5 @@ class UsersController extends Controller
         $token = auth('api')->refresh();
         return  json_success('token刷新成功!',$token, 200);
     }
+
 }
