@@ -12,6 +12,7 @@ class Resouce extends Model
     protected $primaryKey = "id";
     protected $guarded = [];
 
+
     public static function FindResouce(){
         try {
             $res = Resouce::get();
@@ -54,6 +55,21 @@ class Resouce extends Model
             return $date;
         }catch (\Exception $e){
             logError('操作失败',[$e->getMessage()]);
+
+    public static function FindResouce($type , $directiontype){
+        try{
+           $res = Resouce::where('type','=',$type)->where('directiontype','=',$directiontype)->get();
+            return $res;
+        }catch (Exception $e) {
+            return 'error'.$e->getMessage();
+        }
+    }
+    public static function SearchResouce($content){
+        try{
+            $res=Resouce::where('content','like','%'.$content.'%')->get();
+            return $res;
+        }catch (Exception $e) {
+
             return 'error'.$e->getMessage();
         }
     }
@@ -67,4 +83,6 @@ class Resouce extends Model
             return 'error'.$e->getMessage();
         }
     }
+
 }
+

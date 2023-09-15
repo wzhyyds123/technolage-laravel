@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notice extends Model
 {
-    use HasFactory;
+    protected $table = "notice";
+    public $timestamps = true;
+    protected $primaryKey = "id";
+    protected $guarded = [];
+    public static function findnotice(){
+        try{
+            $res = Notice::get();
+            return $res;
+        }catch (Exception $e) {
+            return 'error'.$e->getMessage();
+        }
+    }
 }
