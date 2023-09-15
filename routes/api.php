@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\testcontroller;
+use App\Http\Controllers\ResouceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('11',[testcontroller::class,'text']);
+Route::post('FindResouce',[ResouceController::class,'FindResouce']);
+Route::post('tzlapdate',[ResouceController::class, 'tzlapdate']);
+Route::post('tzldelete',[ResouceController::class,'tzldelete']);
+
