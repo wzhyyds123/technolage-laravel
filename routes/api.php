@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\testcontroller;
+use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('11',[testcontroller::class,'text']);
+Route::post('register',[UsersController::class,'register']);
+Route::post('login',[UsersController::class,'login']);
+Route::post('adminRegister',[AdminsController::class,'adminRegister']);
+Route::post('adminLogin',[AdminsController::class,'adminLogin']);
